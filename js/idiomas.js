@@ -7,7 +7,7 @@ const traducciones = {
         "portada_titulo": "Asesoría Legal con Visión Estratégica en el Sector Energético",
         "portada_subtitulo": "Somos una firma legal de consultoría empresarial, especializada en derecho energético y corporativo.",
         "portada_btn_consulta": "Agenda una Consulta",
-        
+
         // --- Sección Características (Iconos) ---
         "caracteristicas_titulo": "Nuestros Servicios",
         "caract_titulo_1": "Estructura Empresarial",
