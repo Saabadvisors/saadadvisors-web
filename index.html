@@ -35,7 +35,27 @@
                         </div>
                     </div>
                 </div>
-            </nav>
+
+                <button class="boton-hamburguesa" id="botonHamburguesa">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="menu-hamburguesa-desplegable" id="menuDesplegable">
+                    <a href="html/contacto.html" class="boton-contacto" data-traducir="menu_contacto">Contact</a>
+
+                    <div class="selector-idioma-contenedor">
+                        <button class="selector-idioma-boton">
+                            <i class="fas fa-globe"></i>
+                            <span data-traducir="menu_idioma_actual">English</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="idioma-desplegable">
+                            <a href="#" class="opcion-idioma" data-lang="es">Español</a>
+                            <a href="#" class="opcion-idioma" data-lang="en">English</a>
+                        </div>
+                    </div>
+                </div>
+                </nav>
         </header>
 
         <main class="contenido">
@@ -196,6 +216,8 @@
             </div>
         </footer>
     </div>
+    
+    <script src="js/menu-responsive.js"></script> 
     <script src="js/idiomas.js"></script>
 </body>
 </html>

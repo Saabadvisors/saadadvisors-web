@@ -105,7 +105,8 @@ body {
 
 .navegacion {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    /* Cambiado para manejar logo y acciones/hamburguesa */
+    grid-template-columns: 1fr auto; 
     align-items: center;
     max-width: 1600px;
     margin: 0 auto;
@@ -172,6 +173,17 @@ body {
     border: none;
 }
 
+/* Estilo para el botón de contacto que está activo */
+.contacto-activo {
+    background-color: var(--color-texto); 
+    color: var(--color-fondo); 
+}
+.contacto-activo:hover {
+    background-color: var(--color-texto-secundario); 
+    color: var(--color-tarjetas);
+}
+
+
 .idioma-desplegable {
     display: none;
     position: absolute;
@@ -203,15 +215,84 @@ body {
     color: var(--color-fondo);
 }
 
-.boton-contacto:hover {
+.boton-contacto:not(.contacto-activo):hover {
     background-color: var(--color-texto-secundario);
     color: var(--color-tarjetas);
     transform: translateY(-1px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+
 /* ------------------- */
-/* SECCIÓN PRINCIPAL: CONTACTO (ESTILO OSCURO) */
+/* MENÚ HAMBURGUESA Y RESPONSIVE */
+/* ------------------- */
+
+.boton-hamburguesa {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: 1.8rem;
+    color: var(--color-texto);
+    z-index: 1001;
+    line-height: 1;
+}
+
+.menu-hamburguesa-desplegable {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 4rem;
+    background-color: var(--color-fondo);
+    border: 1px solid var(--color-texto-secundario);
+    border-top: none;
+    box-shadow: 0 8px 16px var(--color-sombra);
+    z-index: 999;
+    min-width: 200px;
+    padding: 1rem;
+    border-radius: 0 0 8px 8px;
+}
+
+.menu-hamburguesa-desplegable.activo {
+    display: flex;
+}
+
+.menu-hamburguesa-desplegable .boton-contacto {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem; 
+    width: 100%;
+    min-width: unset;
+    height: 45px;
+}
+
+.menu-hamburguesa-desplegable .selector-idioma-contenedor {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    position: static;
+}
+
+.menu-hamburguesa-desplegable .selector-idioma-boton {
+    width: 100%;
+    min-width: unset;
+    height: 45px;
+    margin-top: 0;
+}
+
+.menu-hamburguesa-desplegable .idioma-desplegable {
+    position: static;
+    box-shadow: none;
+    border: none;
+    border-radius: 4px;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    background-color: var(--color-tarjetas);
+}
+
+
+/* ------------------- */
+/* SECCIÓN PRINCIPAL: CONTACTO */
 /* ------------------- */
 
 .seccion-contacto-principal {
@@ -302,7 +383,6 @@ body {
 
 .social-follow {
     margin-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 1rem;
 }
 
@@ -378,7 +458,7 @@ body {
 .grupo-input select:focus {
     background-color: var(--color-tarjetas); 
     outline: none;
-    box-shadow: 0 0 0 3px rgba(216, 181, 91, 0.3); 
+    box-shadow: 0 0 0 3px rgba(232, 149, 45, 0.3); 
 }
 
 .grupo-input textarea {
@@ -409,7 +489,7 @@ body {
 .footer {
     padding: 1.5rem 4rem;
     margin-top: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(79, 46, 34, 0.1); 
 }
 
 .footer-contenido {
@@ -465,7 +545,7 @@ body {
 /* ------------------- */
 
 @media (max-width: 1000px) {
-    /* Contacto Específico */
+    /* CONTACTO ESPECÍFICO */
     .seccion-contacto-principal {
         flex-direction: column;
         margin: 4rem auto;
@@ -490,41 +570,34 @@ body {
         font-size: 2.2rem;
     }
     .links-comunidad {
-        align-items: flex-start; /* Mantener la alineación a la izquierda en móvil */
+        align-items: flex-start;
     }
 
-    /* Menú */
-    .navegacion {
-        grid-template-columns: 1fr;
-        justify-items: center;
+    /* MENÚ RESPONSIVE */
+    .menu {
         padding: 1rem 2rem;
-        gap: 1rem;
     }
-    .logo-saab {
-        order: -1; 
-        margin-bottom: 0.5rem;
-    }
-    .menu-acciones {
-        justify-content: center;
-        width: 100%;
-    }
-    .selector-idioma-contenedor {
-        justify-self: center;
-        width: 100%;
-        max-width: 300px;
-        order: 1; 
-    }
-    .selector-idioma-boton {
-        width: 100%;
-        justify-content: center;
-    }
-    .idioma-desplegable {
-        left: 50%;
-        transform: translateX(-50%);
-        right: auto;
+    
+    .navegacion {
+        /* Logo a la izquierda y acciones/hamburguesa a la derecha */
+        grid-template-columns: 1fr auto; 
+        gap: 0; 
     }
 
-    /* Footer */
+    /* Oculta el menú de escritorio y MUESTRA el botón de la hamburguesa */
+    .menu-acciones {
+        display: none; 
+    }
+    .boton-hamburguesa {
+        display: block;
+    }
+    
+    /* Reposicionamiento del menú desplegable */
+    .menu-hamburguesa-desplegable {
+        right: 2rem; 
+    }
+
+    /* FOOTER */
     .footer {
         padding: 1.5rem 2rem;
     }

@@ -306,8 +306,8 @@ body {
 
 .caracteristica-item {
     background-color: var(--color-tarjetas);
-    border-radius: 8px;
     border: 1px solid var(--color-dorado);
+    border-radius: 8px;
     padding: 2.5rem;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -683,7 +683,81 @@ body {
 /* MEDIA QUERIES */
 /* ------------------- */
 
+/* MENÚ HAMBURGUESA */
+.boton-hamburguesa {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: 1.8rem;
+    color: var(--color-texto);
+    z-index: 1001;
+    line-height: 1;
+}
+
+.menu-hamburguesa-desplegable {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 4rem;
+    background-color: var(--color-fondo);
+    border: 1px solid var(--color-texto-secundario);
+    border-top: none;
+    box-shadow: 0 8px 16px var(--color-sombra);
+    z-index: 999;
+    min-width: 200px;
+    padding: 1rem;
+    border-radius: 0 0 8px 8px;
+}
+
+.menu-hamburguesa-desplegable.activo {
+    display: flex;
+}
+
+.menu-hamburguesa-desplegable .boton-contacto {
+    margin-top: 0.8rem; 
+    margin-bottom: 0.8rem; 
+    width: 100%;
+    min-width: unset;
+    height: 45px;
+}
+
+.menu-hamburguesa-desplegable .selector-idioma-contenedor {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    position: static;
+}
+
+.menu-hamburguesa-desplegable .selector-idioma-boton {
+    width: 100%;
+    min-width: unset;
+    height: 45px;
+    margin-top: 0;
+}
+
+.menu-hamburguesa-desplegable .idioma-desplegable {
+    position: static;
+    box-shadow: none;
+    border: none;
+    border-radius: 4px;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    background-color: var(--color-tarjetas);
+}
+.menu-hamburguesa-desplegable .idioma-desplegable.visible {
+    position: static;
+    transform: none;
+    left: auto;
+    right: auto;
+}
+
 @media (max-width: 1100px) {
+    .titulo-principal {
+        font-size: 3rem;
+    }
+    
     .seccion-portada {
         flex-direction: column;
         text-align: center;
@@ -760,22 +834,37 @@ body {
 }
 
 @media (max-width: 950px) {
+    /* Implementación del Menú Hamburguesa */
+    .menu-acciones {
+        display: none; 
+    }
+
+    .boton-hamburguesa {
+        display: block;
+        /* Quitamos justify-self: flex-end; ya que el grid lo manejará */
+    }
+
     .navegacion {
-        grid-template-columns: 1fr;
-        justify-items: center;
+        /* Se asegura que el logo y el botón hamburguesa estén en extremos */
+        grid-template-columns: 1fr auto; 
+        justify-content: space-between;
+        align-items: center;
         padding: 1rem 2rem;
         gap: 1rem;
     }
+    
     .logo-saab {
-        order: -1;
-        margin-bottom: 0.5rem;
-        justify-self: center;
+        order: 0;
+        /* ESTE ES EL CAMBIO CLAVE: Asegura la justificación a la izquierda en responsive */
+        justify-self: start; 
     }
-    .menu-acciones {
-        justify-content: center;
-        width: 100%;
-        gap: 1rem;
+    
+    .menu-hamburguesa-desplegable {
+        right: 2rem; 
     }
+    
+    /* Nota: Los siguientes bloques de CSS de idiomas ya estaban diseñados para móvil */
+    /* y se mantienen para que el dropdown de idioma funcione dentro del menú desplegable */
     .selector-idioma-contenedor {
         justify-self: center;
         order: 1;
@@ -792,6 +881,10 @@ body {
 }
 
 @media (max-width: 768px) {
+    .titulo-principal {
+        font-size: 2.5rem; 
+    }
+
     .footer {
         padding: 1.5rem 2rem;
     }

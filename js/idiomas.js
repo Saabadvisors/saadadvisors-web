@@ -20,7 +20,7 @@ const traducciones = {
         // --- Sección Sobre Nosotros ---
         "sobre_titulo": "¿Quiénes somos?",
         "sobre_p1": "Somos una firmasesoría integral con sede en EE. UU., especializada en la contabilidad y consultoría para impulsar a las pequeñas y medianas empresas. Nuestro equipo multidisciplinario se dedica a encontrar soluciones prácticas a los desafíos financieros y de cumplimiento normativo.",
-        "sobre_p2": "Ofrecemos un servicio distintivo al mantener una comunicación abierta y permanente con nuestros clientes, contadores y administradores. Este enfoque colaborativo es la base para asegurar el crecimiento y el bienestar tanto de su empresa como de nuestros colaboradores.",
+        "sobre_p2": "Ofrecemos un servicio distintivo al mantener una comunicación abierta y permanente con nuestros clientes, contadores y administradores. Este enfoque colaborativo es la base para asegurar el crecimiento y el bienestar tanto de su empresa como de nuestros colaboradores.",
         "sobre_punto_titulo_1": "Liderazgo en Energía",
         "sobre_punto_desc_1": "Especialización profunda en el marco regulatorio del sector energético.",
         "sobre_punto_titulo_2": "Cumplimiento (Compliance)",
@@ -147,7 +147,7 @@ const traducciones = {
         // Listas de Servicios (Claves nuevas para las listas)
         "servicios_lista1_intro": "Services:",
         "servicios_lista1_1": "Business Plan",
-        "servicios_lista1_2": "Legal-Fiscal Foundation (Anti-Sanctions)",
+        "servicios_lista1_2": "Legal-Fiscal Foundation (Anti-Sanciones)",
         "servicios_lista1_3": "Sole Proprietorship",
         "servicios_lista1_4": "Partnership",
         "servicios_lista1_5": "Corporation (includes S Corp)",
@@ -318,44 +318,89 @@ function cambiarIdioma(lang) {
     }
 
 
-    const idiomaActualSpan = document.getElementById('idiomaActual');
-    idiomaActualSpan.textContent = traducciones[lang]['menu_idioma_actual'];
-    idiomaActual = lang;
-
-    document.querySelectorAll('.opcion-idioma').forEach(opcion => {
-        opcion.classList.remove('seleccionado');
-        if (opcion.getAttribute('data-lang') === lang) {
-            opcion.classList.add('seleccionado');
+    // --- Actualizar el texto del idioma actual ---
+    document.querySelectorAll('.selector-idioma-contenedor').forEach(contenedor => {
+        const spanIdiomaActual = contenedor.querySelector('span[data-traducir="menu_idioma_actual"]');
+        if (spanIdiomaActual) {
+            spanIdiomaActual.textContent = traducciones[lang]['menu_idioma_actual'];
         }
+        
+        // Actualizar la clase 'seleccionado'
+        contenedor.querySelectorAll('.opcion-idioma').forEach(opcion => {
+            opcion.classList.remove('seleccionado');
+            if (opcion.getAttribute('data-lang') === lang) {
+                opcion.classList.add('seleccionado');
+            }
+        });
     });
+    
+    idiomaActual = lang;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const dropdownBoton = document.getElementById('dropdownIdiomaBoton');
-    const idiomaDropdown = document.getElementById('idiomaDropdown');
-    const opcionesIdioma = idiomaDropdown.querySelectorAll('.opcion-idioma');
     
+    // --- 1. Inicialización de Idioma ---
     cambiarIdioma('en'); // Inicializar la página en inglés
 
-    dropdownBoton.addEventListener('click', () => {
-        idiomaDropdown.classList.toggle('visible');
+    // --- 2. Configuración de Desplegables de Idioma (ESCRITORIO Y RESPONSIVE) ---
+    
+    // Seleccionar todos los contenedores de idioma
+    const contenedoresIdioma = document.querySelectorAll('.selector-idioma-contenedor');
+    
+    contenedoresIdioma.forEach(contenedor => {
+        const dropdownBoton = contenedor.querySelector('.selector-idioma-boton');
+        const idiomaDropdown = contenedor.querySelector('.idioma-desplegable');
+        const opcionesIdioma = contenedor.querySelectorAll('.opcion-idioma');
+        
+        if (dropdownBoton && idiomaDropdown) {
+            // Evento para abrir/cerrar el desplegable
+            dropdownBoton.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation(); // Evitar que el clic se propague al document
+                
+                // Cierra todos los demás desplegables de idioma abiertos
+                document.querySelectorAll('.idioma-desplegable').forEach(dd => {
+                    if (dd !== idiomaDropdown) {
+                        dd.classList.remove('visible');
+                    }
+                });
+                
+                idiomaDropdown.classList.toggle('visible');
+            });
+
+            // Evento para seleccionar el idioma
+            opcionesIdioma.forEach(opcion => {
+                opcion.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    const nuevoIdioma = opcion.getAttribute('data-lang');
+                    cambiarIdioma(nuevoIdioma);
+                    
+                    // Cierra el desplegable después de seleccionar
+                    idiomaDropdown.classList.remove('visible');
+                    
+                    // Asegurar que el menú responsive se cierre si la opción estaba allí
+                    const menuDesplegable = document.getElementById('menuDesplegable');
+                    if (menuDesplegable && menuDesplegable.classList.contains('activo')) {
+                        menuDesplegable.classList.remove('activo');
+                    }
+                });
+            });
+        }
     });
 
-    opcionesIdioma.forEach(opcion => {
-        opcion.addEventListener('click', (e) => {
-            e.preventDefault();
-            
-            const nuevoIdioma = opcion.getAttribute('data-lang');
-            
-            cambiarIdioma(nuevoIdioma);
-            
-            idiomaDropdown.classList.remove('visible');
-        });
-    });
-
+    // --- 3. Cierre Global del Desplegable (Cerrar al hacer clic fuera) ---
     document.addEventListener('click', (e) => {
-        if (!dropdownBoton.contains(e.target) && !idiomaDropdown.contains(e.target)) {
-            idiomaDropdown.classList.remove('visible');
+        const target = e.target;
+        
+        // Verifica si el clic fue fuera de cualquier botón y fuera de cualquier desplegable
+        const isBoton = target.closest('.selector-idioma-boton');
+        const isDropdown = target.closest('.idioma-desplegable');
+        
+        if (!isBoton && !isDropdown) {
+            document.querySelectorAll('.idioma-desplegable').forEach(dd => {
+                dd.classList.remove('visible');
+            });
         }
     });
 });
