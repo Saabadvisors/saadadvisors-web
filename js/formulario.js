@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("No se encontraron todos los elementos del formulario (ID: contactForm, submitButton, formStatus).");
         return;
     }
+
     form.addEventListener('submit', async (event) => {
         event.preventDefault(); 
         

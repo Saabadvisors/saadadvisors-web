@@ -4,10 +4,10 @@ const traducciones = {
         "menu_contacto": "Contacto",
         "menu_idioma_actual": "Español",
         "portada_tagline": "SAAB ADVISORS, LLC",
-        "portada_titulo": "Asesoría Legal con Visión Estratégica en el Sector Energético",
-        "portada_subtitulo": "Somos una firma legal de consultoría empresarial, especializada en derecho energético y corporativo.",
+        "portada_titulo": "Asesoría Contable y Estratégica para tu Crecimiento en EE. UU",
+        "portada_subtitulo": "Transformamos la complejidad de su administración y finanzas en sencillez. Nosotros nos encargamos del trabajo; usted disfruta del rendimiento.",
         "portada_btn_consulta": "Agenda una Consulta",
-
+        
         // --- Sección Características (Iconos) ---
         "caracteristicas_titulo": "Nuestros Servicios",
         "caract_titulo_1": "Estructura Empresarial",
@@ -19,8 +19,8 @@ const traducciones = {
         
         // --- Sección Sobre Nosotros ---
         "sobre_titulo": "¿Quiénes somos?",
-        "sobre_p1": "SAAB Advisors, LLC es una firma líder en consultoría empresarial, especializada en proporcionar soluciones estratégicas y cumplimiento riguroso en los campos legal, fiscal, y contable. Nacimos de la necesidad de ofrecer a nuestros clientes una asesoría que va más allá del simple cumplimiento normativo.",
-        "sobre_p2": "Nuestro compromiso es convertir las complejidades del sector energético y corporativo en ventajas competitivas para su negocio. Trabajamos con una filosofía de transparencia total y dedicación, asegurando que cada aspecto de su operación esté protegido y alineado con sus metas de crecimiento a largo plazo.",
+        "sobre_p1": "Somos una firmasesoría integral con sede en EE. UU., especializada en la contabilidad y consultoría para impulsar a las pequeñas y medianas empresas. Nuestro equipo multidisciplinario se dedica a encontrar soluciones prácticas a los desafíos financieros y de cumplimiento normativo.",
+        "sobre_p2": "Ofrecemos un servicio distintivo al mantener una comunicación abierta y permanente con nuestros clientes, contadores y administradores. Este enfoque colaborativo es la base para asegurar el crecimiento y el bienestar tanto de su empresa como de nuestros colaboradores.",
         "sobre_punto_titulo_1": "Liderazgo en Energía",
         "sobre_punto_desc_1": "Especialización profunda en el marco regulatorio del sector energético.",
         "sobre_punto_titulo_2": "Cumplimiento (Compliance)",
@@ -76,7 +76,7 @@ const traducciones = {
         
         // --- Sección Contacto ---
         "contacto_titulo": "Contáctanos",
-        "contacto_descripcion": "Estamos listos para atender tus dudas y comenzar a simplificar tu proyecto de amueblamiento e interiorismo. Rellena el formulario o utiliza los accesos directos.",
+        "contacto_descripcion": "Estamos listos para atender sus dudas y comenzar a diseñar la ruta estratégica que asegurará el bienestar y el crecimiento de su empresa en EE. UU.",
         "contacto_online_titulo": "Nuestra Ventaja",
         "contacto_online_descripcion": "Operamos 100% online, ofreciendo flexibilidad y acceso a nuestros servicios desde cualquier parte del mundo.",
         "contacto_telefono_titulo": "Llámanos",
@@ -112,8 +112,8 @@ const traducciones = {
         "menu_contacto": "Contact",
         "menu_idioma_actual": "English",
         "portada_tagline": "SAAB ADVISORS, LLC",
-        "portada_titulo": "Legal Advisory with Strategic Vision in the Energy Sector",
-        "portada_subtitulo": "We are a corporate legal consulting firm, specialized in energy and corporate law.",
+        "portada_titulo": "Accounting and Strategic Advisory for Your Growth in the U.S.",
+        "portada_subtitulo": "We transform the complexity of your administration and finances into simplicity. We handle the work; you enjoy the performance.",
         "portada_btn_consulta": "Schedule a Consultation",
 
         // --- Sección Características (Iconos) ---
@@ -127,8 +127,8 @@ const traducciones = {
 
         // --- Sección Sobre Nosotros ---
         "sobre_titulo": "Get to know us better",
-        "sobre_p1": "We are a comprehensive consulting firm based in the U.S., specializing in accounting and consulting to empower small and medium-sized businesses. Our multidisciplinary team is dedicated to finding practical solutions to financial and regulatory compliance challenges. We offer a distinctive service by maintaining open and permanent communication with our clients, accountants, and administrators. This collaborative approach is the foundation for ensuring the growth and well-being of both your company and our collaborators.",
-        "sobre_p2": "Our commitment is to turn the complexities of the energy and corporate sector into competitive advantages for your business. We work with a philosophy of total transparency and dedication, ensuring that every aspect of your operation is protected and aligned with your long-term growth goals.",
+        "sobre_p1": "We are a comprehensive advisory firm based in the U.S., specializing in accounting and consulting to boost small and medium-sized businesses. Our multidisciplinary team is dedicated to finding practical solutions to financial and regulatory compliance challenges.",
+        "sobre_p2": "We offer a distinctive service by maintaining open and permanent communication with our clients, accountants, and administrators. This collaborative approach is the foundation for ensuring the growth and well-being of both your company and our collaborators.",
         "sobre_punto_titulo_1": "Leadership in Energy",
         "sobre_punto_desc_1": "Deep specialization in the regulatory framework of the energy sector.",
         "sobre_punto_titulo_2": "Compliance",
@@ -167,7 +167,7 @@ const traducciones = {
 
         // --- Sección Contacto ---
         "contacto_titulo": "Contact Us",
-        "contacto_descripcion": "We are ready to answer your questions and start simplifying your furnishing and interior design project. Fill out the form or use the direct links.",
+        "contacto_descripcion": "We are ready to address your questions and begin designing the strategic roadmap that will ensure the well-being and growth of your company in the U.S.",
         "contacto_online_titulo": "Our Advantage",
         "contacto_online_descripcion": "We operate 100% online, offering flexibility and access to our services from anywhere in the world.",
         "contacto_telefono_titulo": "Call Us",
